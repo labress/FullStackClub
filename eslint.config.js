@@ -19,12 +19,18 @@ export default defineConfig([
   eslintConfigPrettier,
 
   {
-    plugins: {
-      "simple-import-sort": simpleImportSort,
-    },
+    plugins: ["simple-import-sort"],
     rules: {
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      // Recomendado desativar outras regras de ordenação para evitar conflitos
+      "sort-imports": "off",
+      "import/order": "off",
+    },
+    // Certifique-se que o parser entende a sintaxe de import/export (ES Modules)
+    parserOptions: {
+      sourceType: "module",
+      ecmaVersion: "latest",
     },
   },
 ]);
